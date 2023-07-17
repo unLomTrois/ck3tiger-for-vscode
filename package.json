@@ -12,10 +12,38 @@
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "ck3tiger-for-vscode.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "ck3tiger-for-vscode.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "configuration": {
+      "title": "ck3tiger configuration",
+      "properties": {
+        "ck3tiger.ck3tiger.path": {
+          "scope": "application",
+          "type": "string",
+          "markdownDescription": "Specifies location of your ck3tiger instance"
+        },
+        "ck3tiger.vanilla.path": {
+          "scope": "application",
+          "type": "string",
+          "description": "The location of a vanilla CK3 installation (like \"C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game\""
+        },
+        "ck3tiger.ck3tiger.errorLog": {
+          "scope": "application",
+          "type": "string",
+          "description": "The location of the error log"
+        },
+        "ck3tiger.advice.show": {
+          "scope": "application",
+          "type": "boolean",
+          "description": "Should advices?",
+          "default": false
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
