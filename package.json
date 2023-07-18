@@ -17,10 +17,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "ck3tiger-for-vscode.helloWorld",
-        "title": "ck3tiger: Hello World"
-      },
-      {
         "command": "ck3tiger-for-vscode.resetPaths",
         "title": "ck3tiger: Reset Paths"
       }

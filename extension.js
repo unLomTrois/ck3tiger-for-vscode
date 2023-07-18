@@ -22,11 +22,11 @@ async function activate(context) {
   }
   if (last_version !== current_version) {
     logger.appendLine("Updating cached version");
-    context.globalState.update("last_version", current_version);
+    await context.globalState.update("last_version", current_version);
   }
 
   // checking configuration
-  const configuration = await checkConfiguration(logger);
+  await checkConfiguration(logger);
 
   // status bar button
   initStatusBarButton(context);
@@ -34,6 +34,7 @@ async function activate(context) {
   // status bar button logic
   const diagnosticCollection =
     vscode.languages.createDiagnosticCollection("ck3tiger");
+
   let runCk3tigerCommand = vscode.commands.registerCommand(
     "ck3tiger-for-vscode.runCk3tiger",
     async () => {
@@ -49,15 +50,6 @@ async function activate(context) {
     }
   );
 
-  let helloWorldCommand = vscode.commands.registerCommand(
-    "ck3tiger-for-vscode.helloWorld",
-    () => {
-      vscode.window.showInformationMessage(
-        "Hello World from ck3tiger for vscode!"
-      );
-    }
-  );
-
   let resetPathsCommand = vscode.commands.registerCommand(
     "ck3tiger-for-vscode.resetPaths",
     async () => {
@@ -66,11 +58,7 @@ async function activate(context) {
     }
   );
 
-  context.subscriptions.push(
-    helloWorldCommand,
-    runCk3tigerCommand,
-    resetPathsCommand
-  );
+  context.subscriptions.push(runCk3tigerCommand, resetPathsCommand);
 }
 
 function deactivate() {}
