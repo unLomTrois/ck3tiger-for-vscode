@@ -9,13 +9,20 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:ck3"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "ck3tiger-for-vscode.helloWorld",
-        "title": "Hello World"
+        "title": "ck3tiger: Hello World"
+      },
+      {
+        "command": "ck3tiger-for-vscode.resetPaths",
+        "title": "ck3tiger: Reset Paths"
       }
     ],
     "configuration": {
@@ -26,7 +33,7 @@
           "type": "string",
           "markdownDescription": "Specifies location of your ck3tiger instance"
         },
-        "ck3tiger.vanilla.path": {
+        "ck3tiger.ck3.path": {
           "scope": "application",
           "type": "string",
           "description": "The location of a vanilla CK3 installation (like \"C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game\""
