@@ -3,6 +3,7 @@ const vscode = require("vscode");
 /**
  * @param {vscode.DiagnosticCollection} diagnosticCollection
  * @param {object[]} log_data
+ * @returns {Promise<vscode.DiagnosticCollection | null>}
  */
 async function generateProblems(diagnosticCollection, log_data) {
   diagnosticCollection.clear();
@@ -15,6 +16,9 @@ async function generateProblems(diagnosticCollection, log_data) {
 
       // skip if line is null
       if (location.linenr === null) {
+        console.log("Skipping problem with null line number");
+        console.log(problem);
+
         return;
       }
 
@@ -80,6 +84,8 @@ async function generateProblems(diagnosticCollection, log_data) {
   for (const [filePath, diagnostics] of Object.entries(diagnosticsByFile)) {
     diagnosticCollection.set(vscode.Uri.file(filePath), diagnostics);
   }
+
+  return diagnosticCollection;
 }
 
 exports.generateProblems = generateProblems;
