@@ -60,7 +60,7 @@ async function runCK3Tiger(ck3tiger_path, ck3_path, mod_path, log_path) {
   await new Promise((resolve, reject) => {
     cp.exec(
       `"${ck3tiger_path}" --ck3 "${ck3_path}" --json "${mod_path}" > "${log_path}"`,
-      (err, stdout, stderr) => {
+      (err, stdout) => {
         if (err) {
           reject(err);
         }
@@ -132,10 +132,7 @@ function getProblemsFromLogCommand(logger, diagnosticCollection) {
             message: "Generating problems",
           });
 
-          const collection = await generateProblems(
-            diagnosticCollection,
-            log_data
-          );
+          await generateProblems(diagnosticCollection, log_data);
         }
       );
     }

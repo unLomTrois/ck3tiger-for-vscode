@@ -1,5 +1,4 @@
 const vscode = require("vscode");
-const path = require("path");
 
 /**
  * @param {vscode.WorkspaceConfiguration} configuration
