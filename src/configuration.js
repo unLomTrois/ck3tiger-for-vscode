@@ -1,6 +1,7 @@
 const vscode = require("vscode");
 const { askCK3TigerPath } = require("./askCk3TigerPath");
 const { askCK3Path } = require("./askCK3Path");
+const { askModPath } = require("./askModPath");
 
 /**
  * @param {vscode.OutputChannel} logger
@@ -18,7 +19,7 @@ async function checkConfiguration(logger) {
 
 /**
  * @param {vscode.OutputChannel} logger
- * @returns {Promise<{ck3tiger_path: string, ck3_path: string}>}
+ * @returns {Promise<{ck3tiger_path: string, ck3_path: string, mod_path: string}>}
  */
 async function checkPaths(logger) {
   logger.appendLine("Checking paths...");
@@ -41,7 +42,14 @@ async function checkPaths(logger) {
     ck3_path = await askCK3Path(configuration);
   }
 
-  return { ck3tiger_path, ck3_path };
+  let mod_path = await configuration.get("mod.path");
+  logger.appendLine(`mod.path is ${mod_path} with typeof ${typeof mod_path}`);
+  if (!mod_path) {
+    logger.appendLine("No configuration found for mod.path");
+    mod_path = await askModPath(configuration);
+  }
+
+  return { ck3tiger_path, ck3_path, mod_path };
 }
 
 /**

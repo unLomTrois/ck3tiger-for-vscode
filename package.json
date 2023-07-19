@@ -34,16 +34,10 @@
           "type": "string",
           "description": "The location of a vanilla CK3 installation (like \"C:/Program Files (x86)/Steam/steamapps/common/Crusader Kings III/game\""
         },
-        "ck3tiger.ck3tiger.errorLog": {
+        "ck3tiger.mod.path": {
           "scope": "application",
           "type": "string",
-          "description": "The location of the error log"
-        },
-        "ck3tiger.advice.show": {
-          "scope": "application",
-          "type": "boolean",
-          "description": "Should advices?",
-          "default": false
+          "description": "The location of your .mod file (like \"Like Documents/Paradox Interactive/Crusader Kings III/mod/<.mod file>\""
         }
       }
     }
