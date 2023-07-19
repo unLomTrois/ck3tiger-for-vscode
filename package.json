@@ -1,13 +1,26 @@
 {
   "name": "ck3tiger-for-vscode",
-  "displayName": "ck3tiger for vscode",
-  "description": "it connects error log from ck3tiger and shows errors in vscode",
-  "version": "0.0.1",
+  "displayName": "ck3tiger for VS Code",
+  "description": "Integrates ck3tiger logs with Visual Studio Code",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unLomTrois/ck3tiger-for-vscode"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "paradox",
+    "ck3",
+    "crusader kings 3",
+    "ck3tiger"
   ],
   "activationEvents": [
     "onStartupFinished",
