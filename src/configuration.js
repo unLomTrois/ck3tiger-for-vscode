@@ -70,6 +70,11 @@ async function resetPaths(logger) {
     undefined,
     vscode.ConfigurationTarget.Global
   );
+  await configuration.update(
+    "mod.path",
+    undefined,
+    vscode.ConfigurationTarget.Global
+  );
 }
 
 module.exports = { checkConfiguration, checkPaths, resetPaths };
