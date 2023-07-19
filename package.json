@@ -7,6 +7,10 @@
     "type": "git",
     "url": "https://github.com/unLomTrois/ck3tiger-for-vscode"
   },
+  "author": {
+    "name": "Vadim Kuznetsov",
+    "url": "https://github.com/unLomTrois"
+  },
   "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
