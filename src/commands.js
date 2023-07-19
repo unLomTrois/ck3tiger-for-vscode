@@ -147,13 +147,7 @@ function getProblemsFromLogCommand(logger, diagnosticCollection) {
  */
 async function readTigerLog(log_uri) {
   const log_file = await vscode.workspace.fs.readFile(log_uri);
-  const string_log_file = Buffer.from(log_file).toString();
-
-  // todo: fix this hack
-  // !warning - is it a hack because json is not valid, it has trailing comma at the end of the array, so wait til amtep will fix it
-  const modified = string_log_file.replace(/,\n]\n$/, "]");
-
-  const log_data = JSON.parse(modified);
+  const log_data = JSON.parse(Buffer.from(log_file).toString());
   return log_data;
 }
 
