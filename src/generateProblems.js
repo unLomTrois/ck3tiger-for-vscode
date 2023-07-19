@@ -58,7 +58,9 @@ async function generateProblems(diagnosticCollection, log_data) {
           location.linenr - 1,
           location.column - 1,
           location.linenr - 1,
-          location.line.length
+          location.length
+            ? location.column - 1 + location.length
+            : location.line.length
         ),
         problem.message,
         severity
