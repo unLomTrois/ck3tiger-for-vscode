@@ -22,7 +22,7 @@
       },
       {
         "command": "ck3tiger-for-vscode.getProblemsFromLog",
-        "title": "ck3tiger: Get problems from the log file"
+        "title": "ck3tiger: Get problems from the log file (without running ck3tiger)"
       }
     ],
     "configuration": {
