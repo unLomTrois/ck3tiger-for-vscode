@@ -37,12 +37,10 @@ function handleProblem(problem, diagnosticsByFile) {
   try {
     const location = problem.locations[0];
 
-    // skip if line is null
-    if (location.linenr === null) {
-      if (problem.key !== "colors") {
-        console.log("Skipping problem with null line number");
-        console.log(problem);
-      }
+    // skip if it is colors problem (not stable enough)
+    if (problem.key == "colors") {
+      console.log("Skipping problem with null line number");
+      console.log(problem);
 
       return;
     }
@@ -70,23 +68,42 @@ function handleProblem(problem, diagnosticsByFile) {
 function handleLocation(problem, location) {
   const severity = setSeverity(problem);
 
+  let message = problem.message
+
+  // add tip info if exists
+  if (problem.info) {
+    message = `${message}\ntip: ${problem.info}`
+  }
+
   // Create a diagnostic for the current problem
   const diagnostic = new vscode.Diagnostic(
-    new vscode.Range(
-      location.linenr - 1,
-      location.column - 1,
-      location.linenr - 1,
-      location.length
-        ? location.column - 1 + location.length
-        : location.line.length
-    ),
-    problem.message,
+    setRange(location),
+    message,
     severity
   );
   diagnostic.source = "ck3tiger";
   diagnostic.code = problem.key;
+  
 
   return diagnostic;
+}
+
+function setRange(location) {
+  // if error is for the whole file (like encoding errors, match the whole first line)
+  if (location.linenr == null && location.column == null) {
+    return new vscode.Range(0, 0, 0, 0)
+  }
+  
+  const start = new vscode.Position(location.linenr - 1, location.column - 1);
+
+  const end = new vscode.Position(
+    location.linenr - 1,
+    location.length
+      ? location.column - 1 + location.length
+      : location.line.length
+  );
+
+  return new vscode.Range(start, end);
 }
 
 /**
