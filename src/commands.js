@@ -43,7 +43,7 @@ function runCK3TigerCommand(logger, diagnosticCollection) {
             message: "Generating problems",
           });
 
-          await generateProblems(diagnosticCollection, log_data);
+          generateProblems(diagnosticCollection, log_data);
         }
       );
     }
@@ -132,7 +132,7 @@ function getProblemsFromLogCommand(logger, diagnosticCollection) {
             message: "Generating problems",
           });
 
-          await generateProblems(diagnosticCollection, log_data);
+          generateProblems(diagnosticCollection, log_data);
         }
       );
     }
