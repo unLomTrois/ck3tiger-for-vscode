@@ -2,7 +2,7 @@
   "name": "ck3tiger-for-vscode",
   "displayName": "ck3tiger for VS Code",
   "description": "Integrates ck3tiger logs with Visual Studio Code",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/unLomTrois/ck3tiger-for-vscode"
