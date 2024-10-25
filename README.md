@@ -1,5 +1,6 @@
-# ck3-tiger for VS Code
+# The extension moved here: [ck3tiger-for-vscode-2](https://github.com/unLomTrois/ck3tiger-for-vscode-2)
 
+# ck3-tiger for VS Code
 
 Are you tired of constantly dealing with the tedious process of *open error.log* -> *copy path to an error* -> *navigate to the path* -> *fix the error* -> *go back to the error log* -> *repeat*?
 
